@@ -1,0 +1,85 @@
+﻿@model TournamentsWebApplication.ViewModels.EventTourViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Events</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+       
+      
+       
+        @Html.HiddenFor(model => model.Tournament.TournamentID)
+        </div>
+}
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    @*<th>
+                        @Html.DisplayNameFor(model => model.FK_TournamentID)
+                    </th>*@
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.EventName)*@
+                        <p>Event Name:</p>
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.EventNumber)*@
+                        <p>Event Number:</p>
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.EventDateTime)*@
+                        <p>Event Date Time:</p>
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.EventEndDateTime)*@
+                        <p>Event End Date Time:</p>
+                    </th>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.AutoClose)*@
+                        <p>Auto Close:</p>
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Event)
+                {
+                    <tr>
+                        @*<td>
+                            @Html.DisplayFor(modelItem => item.FK_TournamentID.TournamentID)
+                        </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EventName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EventNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EventDateTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EventEndDateTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AutoClose)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.EventID">Edit</a> |
+                            <a asp-controller="EventDetails" asp-route-id="@item.EventID">Event Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.EventID">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>

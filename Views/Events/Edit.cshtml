@@ -1,0 +1,59 @@
+﻿@model TournamentsWebApplication.Models.Event
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Event</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="EventID" />
+            <div class="form-group">
+                <label asp-for="TournamentID" class="control-label"></label>
+                <select asp-for="TournamentID" class="form-control" asp-items="ViewBag.TournamentID"></select>
+                <span asp-validation-for="TournamentID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventName" class="control-label"></label>
+                <input asp-for="EventName" class="form-control" />
+                <span asp-validation-for="EventName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventNumber" class="control-label"></label>
+                <input asp-for="EventNumber" class="form-control" />
+                <span asp-validation-for="EventNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventDateTime" class="control-label"></label>
+                <input asp-for="EventDateTime" class="form-control" />
+                <span asp-validation-for="EventDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventEndDateTime" class="control-label"></label>
+                <input asp-for="EventEndDateTime" class="form-control" />
+                <span asp-validation-for="EventEndDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AutoClose" class="control-label"></label>
+                <input asp-for="AutoClose" class="form-control" />
+                <span asp-validation-for="AutoClose" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

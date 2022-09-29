@@ -1,0 +1,84 @@
+﻿@model TournamentsWebApplication.ViewModels.EventEventdetailsViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Event Details</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+
+<hr />
+@Html.HiddenFor(m => m.Event.EventID)
+@Html.HiddenFor(m => m.Event.TournamentID)
+<table class="table">
+    <thead>
+        <tr>
+            @*<th>
+            @Html.DisplayNameFor(model => model.EventDetail)
+        </th>*@
+            <th>
+                @*@Html.DisplayNameFor(model => model.EventDetailStatus)*@
+                <p>Event Detail Status:</p>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.EventDetailName)*@
+
+                <p>Event Detail Name:</p>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.EventDetailNumber)*@
+                <p>Event Detail Number:</p>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.EventDetailOdd)*@
+                <p>Event Detail Odd:</p>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.FinishingPosition)*@
+                <p>Finishing Position:</p>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.FirstTimer)*@
+                <p>First Timer:</p>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.EventDetail)
+        {
+            <tr>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.FK_EventID.EventID)
+                </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.FK_EventDetailStatusID.EventDetailStatusName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventDetailName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventDetailNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventDetailOdd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FinishingPosition)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstTimer)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.EventDetailID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.EventDetailID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.EventDetailID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

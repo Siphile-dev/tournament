@@ -1,0 +1,64 @@
+﻿@model TournamentsWebApplication.Models.EventDetail
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>EventDetail</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*@Html.HiddenFor(model => model.FK_EventID)*@
+            <div class="form-group">
+            <label asp-for="EventID" class="control-label"></label>
+            <select asp-for="EventID" class="form-control" asp-items="ViewBag.EventID"></select>
+        </div>
+            <div class="form-group">
+                <label asp-for="EventDetailStatusID" class="control-label"></label>
+                <select asp-for="EventDetailStatusID" class="form-control" asp-items="ViewBag.EventDetailStatusID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventDetailName" class="control-label"></label>
+                <input asp-for="EventDetailName" class="form-control" />
+                <span asp-validation-for="EventDetailName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventDetailNumber" class="control-label"></label>
+                <input asp-for="EventDetailNumber" class="form-control" />
+                <span asp-validation-for="EventDetailNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventDetailOdd" class="control-label"></label>
+                <input asp-for="EventDetailOdd" class="form-control" />
+                <span asp-validation-for="EventDetailOdd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FinishingPosition" class="control-label"></label>
+                <input asp-for="FinishingPosition" class="form-control" />
+                <span asp-validation-for="FinishingPosition" class="text-danger"></span>
+            </div>
+
+            @*Add Checkbox or Dropdown*@
+        <div class="form-group">
+            <label asp-for="FirstTimer" class="control-label"></label>
+            <input class="form-check-input" type="checkbox" asp-for="FirstTimer" style="margin: 5px; width: 15px; height: 13px; overflow: hidden;"/>
+            <span asp-validation-for="FirstTimer" class="text-danger"></span>
+        </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-TournamentsWebApplication-562669FB-EAC0-4C7E-A7E8-C871DD4ED753</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20220921091129_TournamentInintial.cs" />
+    <Compile Remove="Data\Migrations\20220921091129_TournamentInintial.Designer.cs" />
+    <Compile Remove="Data\Migrations\20220921091954_TournamentInintial.cs" />
+    <Compile Remove="Data\Migrations\20220921091954_TournamentInintial.Designer.cs" />
+    <Compile Remove="Data\Migrations\20220921092103_TournamentInintial.cs" />
+    <Compile Remove="Data\Migrations\20220921092103_TournamentInintial.Designer.cs" />
+    <Compile Remove="Data\Migrations\20220921092253_TournamentInintial.cs" />
+    <Compile Remove="Data\Migrations\20220921092253_TournamentInintial.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DocumentFormat.OpenXml" Version="2.18.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.23" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.23" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.23" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.25" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.25">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.IdentityModel.Protocols" Version="6.23.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="xunit.extensibility.core" Version="2.4.2" />
+    <PackageReference Include="xunit.extensibility.execution" Version="2.4.2" />
+  </ItemGroup>
+
+</Project>

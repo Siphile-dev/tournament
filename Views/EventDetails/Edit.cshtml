@@ -1,0 +1,64 @@
+﻿@model TournamentsWebApplication.Models.EventDetail
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>EventDetail</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="EventDetailID" />
+            <div class="form-group">
+                <label asp-for="EventID" class="control-label"></label>
+                <select asp-for="EventID" class="form-control" asp-items="ViewBag.EventID"></select>
+                <span asp-validation-for="EventID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventDetailStatusID" class="control-label"></label>
+                <select asp-for="EventDetailStatusID" class="form-control" asp-items="ViewBag.EventDetailStatusID"></select>
+                <span asp-validation-for="EventDetailStatusID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventDetailName" class="control-label"></label>
+                <input asp-for="EventDetailName" class="form-control" />
+                <span asp-validation-for="EventDetailName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventDetailNumber" class="control-label"></label>
+                <input asp-for="EventDetailNumber" class="form-control" />
+                <span asp-validation-for="EventDetailNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventDetailOdd" class="control-label"></label>
+                <input asp-for="EventDetailOdd" class="form-control" />
+                <span asp-validation-for="EventDetailOdd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FinishingPosition" class="control-label"></label>
+                <input asp-for="FinishingPosition" class="form-control" />
+                <span asp-validation-for="FinishingPosition" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FirstTimer" class="control-label"></label>
+                <input asp-for="FirstTimer" class="form-control" />
+                <span asp-validation-for="FirstTimer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
