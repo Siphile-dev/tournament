@@ -100,8 +100,8 @@ namespace TournamentsWebApplication.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            ViewData["EventDetailStatusID"] = new SelectList(_context.Set<EventDetailStatus>(), "EventDetailStatusID", "EventDetailStatusName", eventDetail.FK_EventDetailStatusID);
-            ViewData["EventID"] = new SelectList(_context.Event, "EventID", "EventID", eventDetail.EventID);
+            //ViewData["EventDetailStatusID"] = new SelectList(_context.Set<EventDetailStatus>(), "EventDetailStatusID", "EventDetailStatusName", eventDetail.FK_EventDetailStatusID);
+            //ViewData["EventID"] = new SelectList(_context.Event, "EventID", "EventID", eventDetail.EventID);
             return View(eventDetail);
         }
 
@@ -177,6 +177,8 @@ namespace TournamentsWebApplication.Controllers
                 return NotFound();
             }
 
+            ViewData["EventDetailStatusID"] = new SelectList(_context.Set<EventDetailStatus>(), "EventDetailStatusID", "EventDetailStatusName", eventDetail.EventDetailStatusID);
+            ViewData["EventID"] = new SelectList(_context.Event, "EventID", "EventID", eventDetail.EventID);
             return View(eventDetail);
         }
 
@@ -190,6 +192,7 @@ namespace TournamentsWebApplication.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
 
         private bool EventDetailExists(int id)
         {
